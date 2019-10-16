@@ -43,4 +43,52 @@ class PostController extends Controller
     	$post = Post::all();
     	return view('all_post')->with('post',$post);
     }
+    public function Delete($id){
+        $post=Post::find($id);
+        if ($post->delete()) {
+            $notification = array(
+                'messege'=>'Post Deleted Successfully',
+                'type'=>'info'
+            );
+
+            return Redirect()->back()->with($notification);
+
+        }else{
+            return Redirect()->back();
+        }
+
+    }
+    public function Edit($id){
+        $post = Post::find($id);
+        return view('editPost',compact('post'));
+    }
+    public function Update(Request $request,$id){
+        $validatedData = $request->validate([
+        'title' => 'required|unique:posts|max:255',
+        'author' => 'required|min:4|max:40',
+        'tag' => 'required',
+        'description' => 'required',
+        ]);
+
+        $post=Post::findorfail($id);
+
+        $post->title = $request->title;
+        $post->author = $request->author;
+        $post->tag = $request->tag;
+        $post->description = $request->description;
+
+        if ($post->save()) {
+            $notification = array(
+                'messege'=>'Post Updated Successfully',
+                'type'=>'success'
+            );
+
+            return Redirect()->route('all.post')->with($notification);
+
+        }else{
+            return Redirect()->back();
+        }
+
+
+    }
 }

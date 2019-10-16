@@ -19,7 +19,7 @@
 	      <td>{{ $data->title }}</td>
 	      <td>{{ $data->author }}</td>
 	      <td>{{ $data->tag }}</td>
-	      <td class="btn-group"><a href="" class="btn btn-sm btn-info">Edit</a><a href="" class="btn btn-sm btn-danger">Delete</a></td>
+	      <td class="btn-group"><a href="{{ URL::to('/edit-post/'.$data->id) }}" class="btn btn-sm btn-info">Edit</a><a href="{{ URL::to('/delete-post/'.$data->id) }}" class="btn btn-sm btn-danger" id="delete">Delete</a></td>
 	    </tr>
 	@endforeach
   </tbody>
