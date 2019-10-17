@@ -6,6 +6,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Dashboard <a href="" class="btn btn-sm btn-primary" style="float: right;"  data-toggle="modal" data-target="#exampleModal">Add Post</a></div>
+                <a href="{{ route('add.news') }}" class="btn btn-sm btn-success">Add News</a>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,7 +15,8 @@
                         </div>
                     @endif
 
-                    <a href="{{ route('all.post') }}" class="btn btn-sm btn-success">All Posts</a>
+                    <a href="{{ route('all.post') }}" class="btn btn-sm btn-success">All Posts</a>    
+                    <a href="{{ route('all.news') }}" class="btn btn-sm btn-success">All News</a>                
                     @if ($errors->any())
                       <div class="alert alert-danger">
                           <ul>

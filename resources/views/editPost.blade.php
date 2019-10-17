@@ -29,7 +29,7 @@
               </div>
               <div class="form-group">
                 <label for="exampleFormControlTextarea1">Description</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" name="description">value="{{ $post->description }}"</textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" name="description">{{ $post->description }}</textarea>
               </div>
           </div>
           <div class="modal-footer">
